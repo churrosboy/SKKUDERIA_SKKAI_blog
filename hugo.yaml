@@ -1,5 +1,5 @@
 baseURL: "https://churrosboy.github.io/SKKUDERIA_SKKAI_blog/"
-title: SKKUDERIA SKKAI
+title: SKKUDERIA_SKKAI
 theme: PaperMod
 languageCode: en-us
 timeZone: Asia/Seoul
@@ -23,8 +23,8 @@ outputs:
 
 params:
   env: production
-  title: SKKUDERIA SKKAI
-  description: "SKKUDERIA SKKAI blog"
+  title: SKKUDERIA_SKKAI
+  description: "SKKUDERIA_SKKAI blog"
   author: churrosboy
   defaultTheme: auto
   disableThemeToggle: false
@@ -40,7 +40,7 @@ params:
   TocOpen: false
 
   homeInfoParams:
-    Title: "SKKUDERIA SKKAI \U0001F44B"
+    Title: "SKKUDERIA_SKKAI \U0001F44B"
     Content: Welcome to our blog. We share our work, notes, and updates here.
 
   socialIcons:
