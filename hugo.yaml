@@ -1,0 +1,74 @@
+baseURL: "https://churrosboy.github.io/SKKUDERIA_SKKAI_blog/"
+title: SKKUDERIA SKKAI
+theme: PaperMod
+languageCode: en-us
+timeZone: Asia/Seoul
+pagination:
+  pagerSize: 10
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON # necessary for search
+
+params:
+  env: production
+  title: SKKUDERIA SKKAI
+  description: "SKKUDERIA SKKAI blog"
+  author: churrosboy
+  defaultTheme: auto
+  disableThemeToggle: false
+
+  ShowReadingTime: true
+  ShowShareButtons: false
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: false
+  ShowRssButtonInSectionTermList: true
+  ShowToc: true
+  TocOpen: false
+
+  homeInfoParams:
+    Title: "SKKUDERIA SKKAI \U0001F44B"
+    Content: Welcome to our blog. We share our work, notes, and updates here.
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/churrosboy"
+
+menu:
+  main:
+    - identifier: archives
+      name: Archives
+      url: /archives/
+      weight: 10
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 20
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 30
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    noClasses: false
+    codeFences: true
+    guessSyntax: true
+    lineNos: false
+    style: monokai
