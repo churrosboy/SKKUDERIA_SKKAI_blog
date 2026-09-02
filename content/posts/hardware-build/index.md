@@ -35,7 +35,7 @@ tags: ["hardware", "roboracer", "lidar"]
 
 이름하여 SOSLAB의 GL5라는 라이다 입니다.
 
-![SOSLAB GL5](gl5.png)
+<img src="gl5.png" alt="SOSLAB GL5" style="max-height:460px;width:auto;max-width:100%;display:block;margin:0 auto;">
 
 GL5는 9m의 가시거리와 40Hz의 Scan Rate, 270도 FOV를 가진 2D 라이다입니다.
 
@@ -43,7 +43,7 @@ GL5는 9m의 가시거리와 40Hz의 Scan Rate, 270도 FOV를 가진 2D 라이�
 
 또한 매우 컴팩트한 사이즈의 라이다인데, 얼마나 컴팩트 하냐면,
 
-![밥숟가락과 GL5 크기 비교](gl5-spoon.jpeg)
+<img src="gl5-spoon.jpeg" alt="밥숟가락과 GL5 크기 비교" style="max-height:460px;width:auto;max-width:100%;display:block;margin:0 auto;">
 
 라이다가 밥숟가락 만하다면 믿어지십니까?
 
@@ -67,11 +67,11 @@ SOSLAB은 GL5 외에도 많은 2D, 3D라이다를 양산하고 있습니다. 국
 
 아무튼 저희는 이랬던 유물 섀시를
 
-![개조 전 섀시](chassis-before.jpeg)
+<img src="chassis-before.jpeg" alt="개조 전 섀시" style="max-height:460px;width:auto;max-width:100%;display:block;margin:0 auto;">
 
 3d프린터로 덱을 뽑아 이렇게 바꾸어 주었습니다.
 
-![개조 후 섀시](chassis-after.jpeg)
+<img src="chassis-after.jpeg" alt="개조 후 섀시" style="max-height:460px;width:auto;max-width:100%;display:block;margin:0 auto;">
 
 ## 2. Onboard PC: NVIDIA Jetson Orin Nano Super
 
@@ -116,4 +116,6 @@ GPU를 사용하려고 샀는데, 저희는 LiDAR 기반의 알고리즘을 사�
 
 무조건 범퍼를 처음부터 달아두세요. 이유는.. 저희도 알고싶지 않았습니다..
 
-![범퍼](bumper.jpeg)
+<video controls playsinline preload="metadata" poster="bumper.jpeg" style="max-height:460px;width:auto;max-width:100%;display:block;margin:0 auto;">
+  <source src="bumper.mp4" type="video/mp4">
+</video>
