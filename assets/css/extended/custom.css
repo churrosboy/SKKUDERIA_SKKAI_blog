@@ -1,0 +1,55 @@
+/* Post list cards: thumbnail beside the title instead of above it */
+.post-entry {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+        "header cover"
+        "content cover"
+        "footer cover";
+    column-gap: 20px;
+    align-items: center;
+}
+
+.post-entry .entry-cover {
+    grid-area: cover;
+    width: 150px;
+    height: 105px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.post-entry .entry-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.post-entry .entry-header {
+    grid-area: header;
+}
+
+.post-entry .entry-content {
+    grid-area: content;
+}
+
+.post-entry .entry-footer {
+    grid-area: footer;
+}
+
+@media (max-width: 500px) {
+    .post-entry .entry-cover {
+        width: 110px;
+        height: 82px;
+    }
+}
+
+/* More breathing room before section headings in post content */
+.post-content h2 {
+    margin-top: 56px;
+}
+
+.post-content h3 {
+    margin-top: 40px;
+}
