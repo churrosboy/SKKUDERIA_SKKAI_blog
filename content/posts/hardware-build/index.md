@@ -6,7 +6,6 @@ tags: ["hardware", "roboracer", "lidar"]
 cover:
   image: cover.jpg
   alt: "SKKUDERIA_SKKAI 차량"
-  hiddenInSingle: true
 ---
 
 안녕하세요, 저희는 이번 IFAC Roboracer 2026에 처음 출전했던 성균관대학교 인공지능학회 SKKAI 모빌리티팀 소속 SKKUDERIA_SKKAI 팀 입니다.
@@ -73,13 +72,18 @@ SOSLAB은 GL5 외에도 많은 2D, 3D라이다를 양산하고 있습니다. 국
 
 저희는 순정 섀시에 LCG 키트를 구해서 장착했습니다. 지상고와 무게중심을 낮추기 위함이었는데, 이또한 추천드리지 않습니다. 저희보다 차체가 낮은 팀이 없었습니다. 또한 후술할 휠 크기와도 연관되어있습니다.
 
-아무튼 저희는 이랬던 유물 섀시를
+아무튼 저희는 이랬던 유물 섀시를, 3d프린터로 덱을 뽑아 이렇게 바꾸어 주었습니다.
 
-<img src="chassis-before.jpeg" alt="개조 전 섀시" style="max-height:460px;width:auto;max-width:100%;display:block;margin:0 auto;">
-
-3d프린터로 덱을 뽑아 이렇게 바꾸어 주었습니다.
-
-<img src="chassis-after.jpeg" alt="개조 후 섀시" style="max-height:460px;width:auto;max-width:100%;display:block;margin:0 auto;">
+<div style="display:flex;gap:12px;justify-content:center;margin:16px 0;">
+  <figure style="flex:1;max-width:320px;margin:0;">
+    <img src="chassis-before.jpeg" alt="개조 전 섀시" style="width:100%;height:auto;border-radius:6px;">
+    <figcaption style="text-align:center;font-size:14px;opacity:.75;">개조 전</figcaption>
+  </figure>
+  <figure style="flex:1;max-width:320px;margin:0;">
+    <img src="chassis-after.jpeg" alt="개조 후 섀시" style="width:100%;height:auto;border-radius:6px;">
+    <figcaption style="text-align:center;font-size:14px;opacity:.75;">개조 후</figcaption>
+  </figure>
+</div>
 
 
 

@@ -1,11 +1,11 @@
 /* Post list cards: thumbnail beside the title instead of above it */
 .post-entry {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: auto 1fr;
     grid-template-areas:
-        "header cover"
-        "content cover"
-        "footer cover";
+        "cover header"
+        "cover content"
+        "cover footer";
     column-gap: 20px;
     align-items: center;
 }
