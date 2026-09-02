@@ -3,6 +3,9 @@ title: "100만원으로 Roboracer에 참가한 팀이 있다?"
 description: "SKKUDERIA_SKKAI의 100% 국산 라이다를 활용한 하드웨어 제작기 (feat. SOSLAB)"
 date: 2026-09-01T19:30:00+09:00
 tags: ["hardware", "roboracer", "lidar"]
+cover:
+  image: cover.jpg
+  alt: "SKKUDERIA_SKKAI 차량"
 ---
 
 *SKKUDERIA_SKKAI의 100% 국산 라이다를 활용한 하드웨어 제작기 (feat. SOSLAB)*
