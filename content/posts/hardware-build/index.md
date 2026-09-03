@@ -22,7 +22,7 @@ cover:
 3. Motor: Traxxas Velineon Brushless 3500
 4. Servo: Highest B210
 5. ESC: VESC6 MKVI
-6. Wheels: Friction1/10 4WD Elec. Offroad Buggy Rear Rubber Tyre Unglued
+6. Wheels: VR Pro Friction1/10 4WD Elec. Offroad Buggy Rear Rubber Tyre Unglued
 7. UBEC: Hobbywing-5A-V2-Air
 8. Battery: VEGA 3300 4s LiPo
 
@@ -111,7 +111,7 @@ GPU를 사용하려고 샀는데, 저희는 LiDAR 기반의 알고리즘을 사�
 
 
 
-## 6. Wheels: Friction1/10 4WD Elec. Offroad Buggy Rear Rubber Tyre Unglued
+## 6. Wheels: VR Pro Friction1/10 4WD Elec. Offroad Buggy Rear Rubber Tyre Unglued
 
 이 또한 차체를 낮추고자, 작은 사이즈의 휠을 장착했습니다.
 
