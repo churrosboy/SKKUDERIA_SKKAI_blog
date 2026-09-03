@@ -45,6 +45,25 @@
     }
 }
 
+/* Keep the post title on a single line */
+.post-header .post-title {
+    font-size: clamp(24px, 4.5vw, 32px);
+}
+
+/* Floating table of contents in the left gutter on wide screens */
+@media (min-width: 1280px) {
+    .post-single details.toc {
+        position: fixed;
+        top: 110px;
+        left: calc((100vw - var(--main-width)) / 2 - 270px);
+        width: 250px;
+        margin: 0;
+        max-height: calc(100vh - 150px);
+        overflow-y: auto;
+        z-index: 10;
+    }
+}
+
 /* More breathing room before section headings in post content */
 .post-content h2 {
     margin-top: 56px;
