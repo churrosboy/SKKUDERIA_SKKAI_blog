@@ -45,6 +45,11 @@
     }
 }
 
+/* Keep the home intro text on a single line */
+.home-info .entry-content {
+    font-size: 15px;
+}
+
 /* Keep the post title on a single line */
 .post-header .post-title {
     font-size: clamp(24px, 4.5vw, 32px);
