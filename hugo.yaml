@@ -23,6 +23,9 @@ outputs:
 
 params:
   env: production
+  analytics:
+    google:
+      SiteVerificationTag: "nMBAx9DQTa-bV5HZ2t1MxswsghepE31MuLbVPuB-fAY"
   title: SKKUDERIA_SKKAI
   description: "SKKUDERIA_SKKAI blog"
   author: churrosboy
