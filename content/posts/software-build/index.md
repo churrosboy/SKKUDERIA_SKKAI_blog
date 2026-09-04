@@ -38,7 +38,6 @@ ROS 2 Humble / Ubuntu 환경에서 코드 작업을 했습니다.
 
 반면 저희가 사용한 GL5는 3D LiDAR라서 드라이버가 PointCloud2를 냅니다. 즉 센서를 바꾸는 순간 "드라이버만 교체"가 아니라, PointCloud2를 LaserScan으로 변환해 기존 스택에 공급하는 브리지 구조를 새로 짜야 합니다.
 
-이 구조 변화가 GL5 연동의 핵심이고, 아래 작업들은 전부 여기서 파생됩니다.
 
 ### 2.1 SDK 빌드와 pre-built 드라이버 패키지
 
@@ -56,7 +55,6 @@ sensors/soslab_gl5_driver_prebuilt/
 
 colcon 빌드 시 이 패키지의 CMakeLists.txt는 컴파일을 전혀 하지 않고 pre-built 바이너리를 install 경로에 복사하는 역할만 합니다. SDK 빌드 환경과 스택 빌드가 완전히 분리되어, 팀원 누구나 SDK 의존성 없이 스택을 빌드할 수 있습니다.
 
-⭐️ 한 가지 주의할 점: 대부분의 저장소 `.gitignore`에는 `*.so` 규칙이 있어서 pre-built 라이브러리가 커밋에서 빠집니다. 저희도 `git add -f`로 강제로 추가해야 했습니다. clone 받은 팀원의 차만 안 움직인다면 이것부터 의심해보세요.
 
 ### 2.2 bringup 배선: 드라이버부터 /scan까지
 
@@ -171,25 +169,6 @@ CPU 부하로 `/scan`, `/tf`, localization 업데이트가 밀리면 오래된 �
 
 detect → controller(Pure Pursuit + FTG) → tracking → spline_planner 순서로 옮겼습니다.
 
-
-
-## 5. Planner
-
-Localization 모듈을 잘 설계했다면 planner를 설계할 단계입니다. 사실 이 단계가 가장 재밌다고 생각합니다. 또 적절한 파라미터를 찾기 위해 가장 많이 실험을 해야 할 단계이기도 합니다.
-
-장애물이 1m 간격으로 있을 수 있기 때문에 연속되어 존재하는 장애물도 잘 회피하는지 확인해야 합니다.
-
-첫 번째 장애물을 회피하고 원래 global trajectory로 복귀하려는 경로상에 장애물이 있을 수 있고, 그러면 다음 장애물을 발견했을 때 이미 해당 장애물과의 거리가 너무 가까워 피할 수 없을 수 있습니다.
-
-여기에 예상치 못한 동적 장애물(상대 차량)까지 고려해 다양한 상황을 커버할 수 있는 plan logic을 짜보세요.
-
-
-
-## 6. Controller
-
-저희는 Pure Pursuit Controller를 사용했습니다.
-
-강화학습을 쓰고 싶다면 여기에 넣으시면 됩니다.
 
 
 
