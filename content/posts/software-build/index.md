@@ -3,6 +3,9 @@ title: "우리 아이, 이제 혼자서도 잘 달려요"
 description: "SKKUDERIA_SKKAI의 100% 국산 라이다를 활용한 소프트웨어 구현기 (feat. SOSLAB)"
 date: 2026-09-04T20:20:00+09:00
 tags: ["software", "roboracer", "lidar", "ros2"]
+cover:
+  image: cover.jpg
+  alt: "대회장에서 코드를 수정 중인 SKKUDERIA_SKKAI 차량"
 ---
 
 안녕하세요, IFAC Roboracer 2026에 처음 출전했던 성균관대학교 인공지능학회 SKKAI 모빌리티팀 소속 SKKUDERIA_SKKAI 팀 입니다.
