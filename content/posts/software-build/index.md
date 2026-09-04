@@ -100,7 +100,7 @@ Perception은 다시 다음과 같이 나눌 수 있습니다.
 
 mapping 및 localization 알고리즘으로는 cartographer를 사용했습니다.
 
-<img src="folded-map.jpeg" alt="접힌 맵" style="max-height:460px;width:auto;max-width:100%;display:block;margin:0 auto;">
+<img src="folded-map.jpeg" alt="접힌 맵" style="max-height:460px;width:auto;max-width:100%;display:block;margin:0 auto 28px;">
 
 저희 차의 시야거리는 9m였기 때문에, 9m 이상의 특징 없는 직선 벽 트랙을 매핑할 때는 차가 현재 위치가 아까 지나온 위치라고 착각해 맵을 접어버리는 일명 맵 접힘 이슈가 있었습니다.
 
@@ -142,7 +142,7 @@ CPU 부하 문제 역시 반드시 신경 써야 하는 부분입니다.
 
 저희 차량의 컴퓨팅 플랫폼은 Jetson Orin Nano Super로, CPU 코어가 6개뿐입니다. 이 6개 코어를 perception, planner, controller는 물론 cartographer, 드라이버, 시각화까지 전부 나눠 쓰기 때문에 한 모듈이 CPU를 과점하면 다른 모듈이 바로 밀립니다.
 
-<img src="jtop.jpeg" alt="Jetson Orin Nano의 CPU 6코어가 모두 75% 이상 점유된 jtop 화면" style="max-height:460px;width:auto;max-width:100%;display:block;margin:0 auto;">
+<img src="jtop.jpeg" alt="Jetson Orin Nano의 CPU 6코어가 모두 75% 이상 점유된 jtop 화면" style="max-height:460px;width:auto;max-width:100%;display:block;margin:0 auto 28px;">
 
 CPU 부하로 `/scan`, `/tf`, localization 업데이트가 밀리면 오래된 라이다 스캔이 현재 시각의 차량 pose와 잘못 결합됩니다. 그 결과 과거 위치에서 관측한 장애물이 현재 scan에 남는, 일명 Phantom 문제가 발생합니다.
 
