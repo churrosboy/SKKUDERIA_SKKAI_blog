@@ -1,5 +1,5 @@
 ---
-title: "우리 아이가 이제 혼자서도 잘 달려요"
+title: "우리 아이, 이제 혼자서도 잘 달려요"
 description: "SKKUDERIA_SKKAI의 100% 국산 라이다를 활용한 소프트웨어 구현기 (feat. SOSLAB)"
 date: 2026-09-04T20:20:00+09:00
 tags: ["software", "roboracer", "lidar", "ros2"]
@@ -56,7 +56,7 @@ sensors/soslab_gl5_driver_prebuilt/
 colcon 빌드 시 이 패키지의 CMakeLists.txt는 컴파일을 전혀 하지 않고 pre-built 바이너리를 install 경로에 복사하는 역할만 합니다. SDK 빌드 환경과 스택 빌드가 완전히 분리되어, 팀원 누구나 SDK 의존성 없이 스택을 빌드할 수 있습니다.
 
 
-### 2.2 bringup 배선: 드라이버부터 /scan까지
+### 2.2 bringup 배선: 드라이버부터 scan토픽까지
 
 토픽 연결은 f1tenth_system(저희는 포크해서 서브모듈로 사용)의 `bringup_launch.py`에서 이루어집니다. 원본에서 urg_node를 빼고 다음 네 가지를 넣었습니다.
 
@@ -97,9 +97,7 @@ Perception은 다시 다음과 같이 나눌 수 있습니다.
 
 mapping 및 localization 알고리즘으로는 cartographer를 사용했습니다.
 
-<!-- TODO: 접힌 맵 사진
 <img src="folded-map.jpeg" alt="접힌 맵" style="max-height:460px;width:auto;max-width:100%;display:block;margin:0 auto;">
--->
 
 저희 차의 시야거리는 9m였기 때문에, 9m 이상의 특징 없는 직선 벽 트랙을 매핑할 때는 차가 현재 위치가 아까 지나온 위치라고 착각해 맵을 접어버리는 일명 맵 접힘 이슈가 있었습니다.
 
@@ -172,6 +170,20 @@ detect → controller(Pure Pursuit + FTG) → tracking → spline_planner 순서
 
 
 
+## 5. Planner
+
+Localization 모듈을 잘 설계했다면 planner를 설계할 단계입니다. 사실 이 단계가 가장 재밌다고 생각합니다. 또 적절한 파라미터를 찾기 위해 가장 많이 실험을 해야 할 단계이기도 합니다.
+
+장애물이 1m 간격으로 있을 수 있기 때문에 연속되어 존재하는 장애물도 잘 회피하는지 확인해야 합니다.
+
+<img src="obstacles.jpeg" alt="1m 간격으로 놓인 장애물 테스트" style="max-height:460px;width:auto;max-width:100%;display:block;margin:0 auto;">
+
+첫 번째 장애물을 회피하고 원래 global trajectory로 복귀하려는 경로상에 장애물이 있을 수 있고, 그러면 다음 장애물을 발견했을 때 이미 해당 장애물과의 거리가 너무 가까워 피할 수 없을 수 있습니다.
+
+여기에 예상치 못한 동적 장애물(상대 차량)까지 고려해 다양한 상황을 커버할 수 있는 plan logic을 짜보세요.
+
+
+
 ## 그래서 스택을 다시 짠다면?
 
 돌이켜보면 화려한 Planning이나 Control 알고리즘보다 정확하고 안정적인 Perception이 먼저였습니다. 특히 Localization이 안정적이어야 이후 모듈의 문제도 올바르게 진단할 수 있었습니다.
@@ -184,8 +196,6 @@ detect → controller(Pure Pursuit + FTG) → tracking → spline_planner 순서
 
 ## Cookie
 
-<!-- TODO: Cookie 영상 (KakaoTalk_Video_2026-09-04-16-19-23.mp4)
 <video controls playsinline preload="metadata" poster="cookie.jpeg" style="max-height:460px;width:auto;max-width:100%;display:block;margin:0 auto;">
   <source src="cookie.mp4" type="video/mp4">
 </video>
--->
