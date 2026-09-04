@@ -37,10 +37,9 @@ ROS 2 Humble / Ubuntu 환경에서 코드 작업을 했습니다.
 
 ## 2. SOSLAB GL5 LiDAR 연결
 
-기존 ForzaETH 스택은 Hokuyo LiDAR를 기준으로 구성되어 있습니다. Hokuyo는 드라이버(urg_node)가 `/scan` 토픽으로 LaserScan 메시지를 직접 발행하고, 스택의 모든 모듈(cartographer, detection, FTG 등)이 이 LaserScan을 그대로 소비하는 구조입니다.
+기존 ForzaETH 스택은 Hokuyo LiDAR를 기준으로 구성되어 있습니다. Hokuyo는 드라이버(urg_node)가 /scan 토픽으로 LaserScan 메시지를 직접 발행하고, 스택의 모든 모듈(cartographer, detection, FTG 등)이 이 LaserScan을 그대로 소비하는 구조입니다.
 
-반면 저희가 사용한 GL5는 3D LiDAR라서 드라이버가 PointCloud2를 냅니다. 즉 센서를 바꾸는 순간 "드라이버만 교체"가 아니라, PointCloud2를 LaserScan으로 변환해 기존 스택에 공급하는 브리지 구조를 새로 짜야 합니다.
-
+저희가 사용한 GL5도 Hokuyo와 같은 2D 스캐닝 라이다입니다(270° FOV, 0.18°/빔, 40Hz). 다만 SOSLAB SDK의 드라이버는 2D 센서인데도 출력을 LaserScan이 아니라 PointCloud2(x, y, z — z는 사실상 0)로 내보냅니다. 즉 센서가 3D여서가 아니라 드라이버의 메시지 타입 차이 때문에, PointCloud2를 LaserScan으로 도로 눌러주는 변환 브리지 구조를 새로 짜야 합니다. 이 구조 변화가 GL5 연동의 핵심이고, 아래 작업들은 전부 여기서 파생됩니다.
 
 ### 2.1 SDK 빌드와 pre-built 드라이버 패키지
 
