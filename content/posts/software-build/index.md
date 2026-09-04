@@ -139,6 +139,8 @@ CPU 부하 문제 역시 반드시 신경 써야 하는 부분입니다.
 
 저희 차량의 컴퓨팅 플랫폼은 Jetson Orin Nano Super로, CPU 코어가 6개뿐입니다. 이 6개 코어를 perception, planner, controller는 물론 cartographer, 드라이버, 시각화까지 전부 나눠 쓰기 때문에 한 모듈이 CPU를 과점하면 다른 모듈이 바로 밀립니다.
 
+<img src="jtop.jpeg" alt="Jetson Orin Nano의 CPU 6코어가 모두 75% 이상 점유된 jtop 화면" style="max-height:460px;width:auto;max-width:100%;display:block;margin:0 auto;">
+
 CPU 부하로 `/scan`, `/tf`, localization 업데이트가 밀리면 오래된 라이다 스캔이 현재 시각의 차량 pose와 잘못 결합됩니다. 그 결과 과거 위치에서 관측한 장애물이 현재 scan에 남는, 일명 Phantom 문제가 발생합니다.
 
 각 모듈의 정확도뿐 아니라 연산 주기, callback 지연, CPU 점유율도 함께 지켜봐야 합니다.
@@ -167,20 +169,6 @@ CPU 부하로 `/scan`, `/tf`, localization 업데이트가 밀리면 오래된 �
 
 detect → controller(Pure Pursuit + FTG) → tracking → spline_planner 순서로 옮겼습니다.
 
-
-
-
-## 5. Planner
-
-Localization 모듈을 잘 설계했다면 planner를 설계할 단계입니다. 사실 이 단계가 가장 재밌다고 생각합니다. 또 적절한 파라미터를 찾기 위해 가장 많이 실험을 해야 할 단계이기도 합니다.
-
-장애물이 1m 간격으로 있을 수 있기 때문에 연속되어 존재하는 장애물도 잘 회피하는지 확인해야 합니다.
-
-<img src="obstacles.jpeg" alt="1m 간격으로 놓인 장애물 테스트" style="max-height:460px;width:auto;max-width:100%;display:block;margin:0 auto;">
-
-첫 번째 장애물을 회피하고 원래 global trajectory로 복귀하려는 경로상에 장애물이 있을 수 있고, 그러면 다음 장애물을 발견했을 때 이미 해당 장애물과의 거리가 너무 가까워 피할 수 없을 수 있습니다.
-
-여기에 예상치 못한 동적 장애물(상대 차량)까지 고려해 다양한 상황을 커버할 수 있는 plan logic을 짜보세요.
 
 
 
