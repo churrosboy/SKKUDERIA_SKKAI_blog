@@ -38,13 +38,6 @@
     grid-area: footer;
 }
 
-@media (max-width: 500px) {
-    .post-entry .entry-cover {
-        width: 110px;
-        height: 82px;
-    }
-}
-
 /* Keep the home intro text on a single line */
 .home-info .entry-content {
     font-size: 15px;
@@ -76,4 +69,54 @@
 
 .post-content h3 {
     margin-top: 40px;
+}
+
+/* ---------- Mobile only: give the layout more breathing room ---------- */
+
+/* Wider side gutters on phones (PaperMod drops --gap to 14px below 768px) */
+@media screen and (max-width: 768px) {
+    :root {
+        --gap: 20px;
+    }
+
+    /* Smaller headings with a bit less space above them */
+    .post-content h2 {
+        font-size: 26px;
+        margin-top: 44px;
+    }
+
+    .post-content h3 {
+        font-size: 21px;
+        margin-top: 32px;
+    }
+
+    /* Looser body text */
+    .post-content {
+        line-height: 1.75;
+    }
+
+    /* Keep the home title (with its emoji) on one line */
+    .home-info .entry-header h1 {
+        font-size: 30px;
+    }
+
+    /* Let the home intro wrap naturally at normal size */
+    .home-info .entry-content {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+}
+
+/* Post cards: thumbnail above the title on phones, left of it on larger screens */
+@media (max-width: 500px) {
+    .post-entry {
+        display: block;
+    }
+
+    .post-entry .entry-cover {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        margin-bottom: 12px;
+    }
 }
