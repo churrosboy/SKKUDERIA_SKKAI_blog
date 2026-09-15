@@ -38,9 +38,23 @@
     grid-area: footer;
 }
 
-/* Keep the home intro text on a single line */
+/* Home intro: centred under the banner, in the stronger text colour */
 .home-info .entry-content {
-    font-size: 15px;
+    font-size: 16px;
+    /* slightly tighter tracking keeps the sentence on one line at 720px */
+    letter-spacing: -0.02em;
+    color: var(--primary);
+    text-align: center;
+    text-wrap: balance;
+}
+
+.home-info .social-icons {
+    text-align: center;
+}
+
+/* Undo PaperMod's left-flush first icon, which would offset the centred row */
+.home-info .social-icons a:first-of-type {
+    padding-inline-start: 10px;
 }
 
 /* Keep the post title on a single line */
@@ -97,7 +111,6 @@
 
     /* Let the home intro wrap naturally at normal size */
     .home-info .entry-content {
-        font-size: 16px;
         line-height: 1.6;
     }
 }

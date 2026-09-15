@@ -54,6 +54,10 @@ params:
   socialIcons:
     - name: github
       url: "https://github.com/churrosboy"
+    - name: instagram
+      url: "https://www.instagram.com/skkai_official"
+    - name: linkedin
+      url: "https://www.linkedin.com/company/skkai-sungkyunkwan-ai"
 
 menu:
   main:
