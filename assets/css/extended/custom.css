@@ -95,11 +95,6 @@
         line-height: 1.75;
     }
 
-    /* Keep the home title (with its emoji) on one line */
-    .home-info .entry-header h1 {
-        font-size: 30px;
-    }
-
     /* Let the home intro wrap naturally at normal size */
     .home-info .entry-content {
         font-size: 16px;
