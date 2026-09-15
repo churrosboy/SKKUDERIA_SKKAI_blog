@@ -135,3 +135,9 @@
     min-width: 0;
     height: auto;
 }
+
+/* Drop PaperMod's 320px min-height so the intro sits close under the banner */
+.home-info.first-entry {
+    min-height: auto;
+    margin-top: 0;
+}
