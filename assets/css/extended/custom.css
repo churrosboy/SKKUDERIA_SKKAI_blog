@@ -120,3 +120,18 @@
         margin-bottom: 12px;
     }
 }
+
+/* Home banner: the two logo images joined into one strip, matched in height */
+.home-banner {
+    display: flex;
+    width: 100%;
+    margin-bottom: var(--gap);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.home-banner img {
+    display: block;
+    min-width: 0;
+    height: auto;
+}

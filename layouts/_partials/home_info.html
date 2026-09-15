@@ -1,0 +1,25 @@
+{{- $skkuderia := resources.Get "images/banner-skkuderia.jpg" }}
+{{- $skkai := resources.Get "images/banner-skkai.png" }}
+{{- if and $skkuderia $skkai }}
+{{/* flex-grow is each image's aspect ratio, so the two render at the same height */}}
+<div class="home-banner">
+    <img src="{{ $skkuderia.RelPermalink }}" width="{{ $skkuderia.Width }}" height="{{ $skkuderia.Height }}"
+        style="flex: {{ div (float $skkuderia.Width) $skkuderia.Height }} 1 0" alt="SKKUDERIA SKKAI">
+    <img src="{{ $skkai.RelPermalink }}" width="{{ $skkai.Width }}" height="{{ $skkai.Height }}"
+        style="flex: {{ div (float $skkai.Width) $skkai.Height }} 1 0" alt="">
+</div>
+{{- end }}
+{{- with site.Params.homeInfoParams }}
+<article class="first-entry home-info">
+    <header class="entry-header">
+        <h1>{{ .Title | markdownify }}</h1>
+    </header>
+    <div class="entry-content md-content">
+        {{ $opts := dict "display" "block" }}
+        {{ .Content | $.Page.RenderString $opts }}
+    </div>
+    <footer class="entry-footer">
+        {{ partial "social_icons.html" (dict "align" site.Params.homeInfoParams.AlignSocialIconsTo) }}
+    </footer>
+</article>
+{{- end -}}
